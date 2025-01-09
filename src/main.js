@@ -1,7 +1,6 @@
-import * as THREE from "/libs/three/three.module.js";
+import * as THREE from "../libs/three/three.module.js";
 
-import { FBXLoader } from "/libs/three/addons/loaders/FBXLoader.js";
-import { OrbitControls } from "/libs/three/addons/controls/OrbitControls.js";
+import { FBXLoader } from "../libs/three/addons/loaders/FBXLoader.js";
 
 const clock = new THREE.Clock();
 const manager = new THREE.LoadingManager();
@@ -20,7 +19,6 @@ function init() {
     1,
     2000
   );
-  //camera.position.set(0, 1000, 0);
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0xa0a0a0);
@@ -62,9 +60,9 @@ function init() {
   renderer.shadowMap.enabled = true;
   container.appendChild(renderer.domElement);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+/*   const controls = new OrbitControls(camera, renderer.domElement);
   controls.target.set(0, 100, 0);
-  controls.update();
+  controls.update(); */
 }
 
 function loadAsset(asset) {
