@@ -53,6 +53,15 @@ function init() {
   loadAsset("test6");
   //loadAsset("table");
 
+  setTimeout(() => {
+    console.log(mixer)
+    mixer.forEach(m => {
+      console.log(m)
+      m._actions[0].play()
+    })  
+  }, 3000);
+  
+
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -82,7 +91,8 @@ function loadAsset(asset) {
       let mixerTmp = new THREE.AnimationMixer(object);
       mixer.push(mixerTmp);
       const action = mixerTmp.clipAction(object.animations[0]);
-      action.play();
+      action.setDuration(1.5)
+      //action.play();
     }
     object.rotateX(-Math.PI / 2);
     //console.log(object.rotation);
